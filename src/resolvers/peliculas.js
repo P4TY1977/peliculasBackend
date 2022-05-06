@@ -6,4 +6,5 @@ const listar = async ({dataSources})=>
         return {success: false}
     return {success: true, peliculas}
 }
+
 module.exports ={listar}

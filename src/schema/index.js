@@ -5,6 +5,28 @@ const typeDefs = gql`
     {
         id: Int !
         nombre: String !
+        genero: Genero !
+        clasificacion: Clasificacion !
+        img: String
+    }
+
+    enum Clasificacion
+    {
+      A
+      B
+      C
+    }
+    enum Genero
+    {      
+      ACCION
+      ANIMACION
+      AVENTURA
+      DRAMA
+      COMEDIA
+      FICCION
+      INFANTIL
+      MISTERIO
+      TERROR
     }
 
 
@@ -17,6 +39,8 @@ const typeDefs = gql`
     type Query
     {
         peliculas: RespuestaPeliculas !
+
+        encontrarPeliculasPorTitulo( name: String! ): [ Pelicula ! ]
       
     }
 `

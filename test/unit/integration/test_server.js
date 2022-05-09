@@ -28,10 +28,13 @@ const start = async () =>
         }
 }
 
-
+const end = () =>{
+  database.end()
+  testServer.end()
+}
 module.exports =
 {
   get: () => testServer,
   start,
-  end: () => testServer.end()
+  end
 }

@@ -8,7 +8,7 @@ class PeliculasDataSource extends DataSource
     { this.context = config.context}
 
     listar(){
-        const sql='SELECT id, nombre FROM peliculas'
+        const sql='SELECT id, nombre, genero, clasificacion FROM peliculas'
 
         return database.withPool(connection =>
             database.select(connection, sql)

@@ -6,8 +6,7 @@ const typeDefs = gql`
         id: Int !
         nombre: String !
         genero: Genero !
-        clasificacion: Clasificacion !
-        img: String
+        clasificacion: Clasificacion !      
     }
 
     enum Clasificacion

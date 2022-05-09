@@ -2,12 +2,14 @@ const { execute } = require( 'apollo-link' )
 const { HttpLink } = require( 'apollo-link-http' )
 const fetch = require( 'node-fetch' )
 
+const database= require('../../../src/dataBase')
 const { server } = require( '../../../src/server' )
 
 let testServer
 
 const start = async () =>
 {
+  await database.init()
   const httpServer = await server.listen( { port: 0 } )
   const link = new HttpLink(
   {
@@ -25,6 +27,7 @@ const start = async () =>
           execute: executeFuntion
         }
 }
+
 
 module.exports =
 {

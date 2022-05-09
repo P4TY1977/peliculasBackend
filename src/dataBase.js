@@ -1,4 +1,4 @@
-const mysql = require('promise-mysql')
+const mysql=require('promise-mysql')
 
 let database
 
@@ -33,15 +33,10 @@ async function select (connection, sql)
     return resultados.map(renglon=>({...renglon}))
 }
 
-const end = () => {
-    database.end()
-    testServer.end()  //Preguntarle a San de donde es este testServer
-}
-
 module.exports=
 {
     init,
-    end,
+    end: () => database.end(),
     withPool,
     select
 }

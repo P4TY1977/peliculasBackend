@@ -2,7 +2,7 @@ const { execute } = require( 'apollo-link' )
 const { HttpLink } = require( 'apollo-link-http' )
 const fetch = require( 'node-fetch' )
 
-const database= require('../../../src/dataBase')
+const database= require('../../../src/database')
 const { server } = require( '../../../src/server' )
 
 let testServer

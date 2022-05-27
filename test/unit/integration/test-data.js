@@ -1,6 +1,6 @@
 const fs = require ('fs')
 
-const database = require ('../../../src/dataBase')
+const database = require ('../../../src/database')
 
 const TABLAS = [ 'peliculas']
 

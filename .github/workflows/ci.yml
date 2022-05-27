@@ -23,6 +23,6 @@ jobs:
     - name: crear base de datos
       run: mysql -uroot -proot -e "CREATE DATABASE peliculas_test"
     - name: Crear esquema de base de datos
-      run: mysql -uroot -proot -D peliculas-test < database/schema.sql
+      run: mysql -uroot -proot -D peliculas_test < database/schema.sql
     - run: npm run test-unit
-    - run: npm run test-integration
+    - run: MYSQL_USER=root MYSQL_PASSWORD=root npm run test-integration

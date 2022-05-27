@@ -5,7 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    service:
+      mysql:
+       image:mysql:5.7
 
     steps:
     - uses: actions/checkout@v2
@@ -13,5 +16,13 @@ jobs:
       with:
         node-version: '14'
     - run: npm install
+    - name: start mysql
+      run: sudo systemctl start mysql.service
+    - name: mysql version
+      run: mysql -uroot -proot -e "SELECT @@VERSION"
+    - name: crear base de datos
+      run: mysql -uroot -proot -e "CREATE DATABASE peliculas-test"
+    - name: Crear esquema de base de datos
+      run: mysql -uroot -proot -D peliculas-test < database/schema.sql
     - run: npm run test-unit
     - run: npm run test-integration

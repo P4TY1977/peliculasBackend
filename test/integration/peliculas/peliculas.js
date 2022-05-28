@@ -29,8 +29,7 @@ const test = () => describe( 'peliculas', () =>
       expect( datos.peliculas ).to.deep.equal(
         [
           {"id": 1, "nombre":"Bambi"},
-          {"id": 2, "nombre":"Pesadilla en la calle del infierno"},
-          {"id": 3, "nombre":"XXX"},
+          {"id": 2, "nombre":"Pesadilla en la calle del infierno"}
       ]
         
       )

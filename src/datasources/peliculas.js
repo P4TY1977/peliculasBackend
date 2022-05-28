@@ -1,6 +1,6 @@
 const {DataSource}=require ('apollo-datasource')
 
-const database = require ('../dataBase')
+const database = require ('../database')
 
 class PeliculasDataSource extends DataSource
 {

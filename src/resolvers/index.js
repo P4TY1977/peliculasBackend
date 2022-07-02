@@ -18,5 +18,11 @@ const Query =
     }*/
 }
 
+const Mutation =
+{
+    agregarPelicula: (_, {pelicula}, context) => 
+      peliculas.agregar(context, pelicula)
+}
 
-module.exports = {Query}
+
+module.exports = {Query, Mutation}

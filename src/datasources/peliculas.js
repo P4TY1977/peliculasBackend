@@ -13,7 +13,18 @@ class PeliculasDataSource extends DataSource
         return database.withPool(connection =>
             database.select(connection, sql)
             )
-       
+                  
+    }
+    agregar( {id, nombre} )
+    {
+        //console.warn('id recibido', id)
+        const sql = `INSERT INTO pelicula VALUES ( ${ id }, '${ nombre }')`
+
+        return database.withTransaction (async connection =>{
+            await database.update(connection,sql)
+            //console.warn('regreso', id)
+            return id
+        })
     }
 }
 

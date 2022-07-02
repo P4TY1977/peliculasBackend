@@ -34,7 +34,25 @@ const typeDefs = gql`
         success: Boolean !
         peliculas: [ Pelicula ! ]  # no nulo si success == true
     }
+    
+    input InputNuevaPelicula
+    {
+       id: ID!
+       nombre: String !
+    }
 
+    type RespuestaAgregar
+    {
+        success: Boolean !
+      id  : ID #no nulo si es success == true
+
+    }
+
+    
+    type Mutation
+    {
+      agregarPelicula(pelicula: InputNuevaPelicula !): RespuestaAgregar !
+    }
     type Query
     {
         peliculas: RespuestaPeliculas !

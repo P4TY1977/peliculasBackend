@@ -18,7 +18,7 @@ class PeliculasDataSource extends DataSource
     agregar( {id, nombre} )
     {
         //console.warn('id recibido', id)
-        const sql = `INSERT INTO pelicula VALUES ( ${ id }, '${ nombre }')`
+        const sql = `INSERT INTO peliculas (id, nombre) VALUES ( ${ id }, '${ nombre }')`
 
         return database.withTransaction (async connection =>{
             await database.update(connection,sql)

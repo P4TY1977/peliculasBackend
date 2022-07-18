@@ -14,11 +14,12 @@ const PELICULAS = gql`
       }
   }
 `
+const listarPeliculas = () => toPromise( testServer.get().execute({ query: PELICULAS}))
 const test = () => describe( 'peliculas', () =>
 {
    it('debe listar peliculas', async () =>
    {
-      const result = await toPromise( testServer.get().execute({ query: PELICULAS }))
+      const result = await listarPeliculas()
 
       expect( result ).to.be.ok
       //console.warn(JSON.stringify(result))
@@ -28,12 +29,12 @@ const test = () => describe( 'peliculas', () =>
       expect( datos.success ).to.be.true
       expect( datos.peliculas ).to.deep.equal(
         [
-          {"id": 1, "nombre":"Bambi"},
-          {"id": 2, "nombre":"Pesadilla en la calle del infierno"}
+          {"id": "1", "nombre":"Bambi"},
+          {"id": "2", "nombre":"Pesadilla en la calle del infierno"}
       ]
         
       )
    })
 })
 
-module.exports = { test }
+module.exports = { test, listarPeliculas }

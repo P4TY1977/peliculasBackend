@@ -1,7 +1,8 @@
 const { cargarDatos }= require('./test-data')
 const testServer = require ( './test_server' )
 
-const peliculas = require( './peliculas/peliculas' )
+const peliculasListar = require( './peliculas/peliculas' )
+const peliculasAgregar = require('./peliculas/agregar')
 
 jest.setTimeout( 20000 )
 describe ( 'Integration tests', () =>
@@ -10,5 +11,6 @@ describe ( 'Integration tests', () =>
   beforeAll(()=> cargarDatos())
   afterAll( () => testServer.end() )
 
-  peliculas.test()
+  peliculasListar.test()
+  peliculasAgregar.test()
 })

@@ -17,14 +17,14 @@ const start = async () =>
       fetch
   })
 
-  const executeFuntion = ({ query }) =>
-        execute( link, { query, variables: {} })
+  const executeFunction = ({ query, variables = {} }) =>
+        execute( link, { query, variables })
 
         testServer =
         {
           links: {link},
           end: () => httpServer.server.close(),
-          execute: executeFuntion
+          execute: executeFunction
         }
 }
 

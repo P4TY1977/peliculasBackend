@@ -3,7 +3,7 @@ const { gql } = require('apollo-server')
 const typeDefs = gql`
     type Pelicula
     {
-        id: Int !
+        id: ID !
         nombre: String !
         genero: Genero !
         clasificacion: Clasificacion !      

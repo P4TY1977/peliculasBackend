@@ -51,6 +51,15 @@ describe('Resolvers / peliculas',()=>
             expect (dataSources.peliculas.agregar).to.have.been.calledOnce
             expect(result).to.deep.equal({success: true, id: '10'})
         })
+        it('debe indicar que no se pudo agregar pelicula', async()=>
+        {
+            dataSources.peliculas.agregar = sinon.stub().resolves(null)
+
+            const result = await  resolvers.Mutation.agregarPelicula(null, pelicula,{dataSources})
+
+            expect (dataSources.peliculas.agregar).to.have.been.calledOnce
+            expect(result).to.deep.equal({success: false})
+        })
     })
     
 })
